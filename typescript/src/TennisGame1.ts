@@ -40,22 +40,26 @@ export class TennisGame1 implements TennisGame {
           score += "-";
           tempScore = this.m_score2;
         }
-        switch (tempScore) {
-          case 0:
-            score += "Love";
-            break;
-          case 1:
-            score += "Fifteen";
-            break;
-          case 2:
-            score += "Thirty";
-            break;
-          case 3:
-            score += "Forty";
-            break;
-        }
+          score += this.scoreToText(tempScore);
       }
     }
     return score;
   }
+
+    private scoreToText(score: number): string {
+    switch (score) {
+      case 0:
+        return "Love";
+      case 1:
+        return "Fifteen";
+      case 2:
+        return "Thirty";
+      case 3:
+        return "Forty";
+      default:
+        return "";
+    }
+  }
 }
+
+
