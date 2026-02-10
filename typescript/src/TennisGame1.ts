@@ -13,23 +13,17 @@ export class TennisGame1 implements TennisGame {
   }
 
   getScore(): string {
-    let score: string = "";
     if (this.m_score1 === this.m_score2) {
-    return this.m_score1 < 3
-      ? `${this.scoreToText(this.m_score1)}-All`
-      : "Deuce";
+    return this.m_score1 < 3 ? `${this.scoreToText(this.m_score1)}-All` : "Deuce";
     }
-    else if (this.m_score1 >= 4 || this.m_score2 >= 4) {
+     if (this.m_score1 >= 4 || this.m_score2 >= 4) {
       const minusResult: number = this.m_score1 - this.m_score2;
-      if (minusResult === 1) score = `Advantage ${First_player_Name}`;
-      else if (minusResult === -1) score = `Advantage ${Second_player_Name}`;
-      else if (minusResult >= 2) score = `Win for ${First_player_Name}`;
-      else score = `Win for ${Second_player_Name}`;
-    } else {
-      score =
-        this.scoreToText(this.m_score1) + "-" + this.scoreToText(this.m_score2);
-    }
-    return score;
+      if (minusResult === 1) return   `Advantage ${First_player_Name}`;
+      if (minusResult === -1)  return  `Advantage ${Second_player_Name}`;
+      if (minusResult >= 2) return  `Win for ${First_player_Name}`;
+       return `Win for ${Second_player_Name}`;
+    } 
+    return `${this.scoreToText(this.m_score1)}-${this.scoreToText(this.m_score2)}`;
   }
 
   private scoreToText(score: number): string {
