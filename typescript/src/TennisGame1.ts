@@ -1,11 +1,15 @@
 import { TennisGame } from "./TennisGame";
 
+
+ const First_player_Name: string = "player1";
+ const Second_player_Name: string = "player2";
+
 export class TennisGame1 implements TennisGame {
   private m_score1: number = 0;
   private m_score2: number = 0;
 
   wonPoint(playerName: string): void {
-    if (playerName === "player1") this.m_score1 += 1;
+    if (playerName === First_player_Name) this.m_score1 += 1;
     else this.m_score2 += 1;
   }
 
@@ -28,10 +32,10 @@ export class TennisGame1 implements TennisGame {
       }
     } else if (this.m_score1 >= 4 || this.m_score2 >= 4) {
       const minusResult: number = this.m_score1 - this.m_score2;
-      if (minusResult === 1) score = "Advantage player1";
-      else if (minusResult === -1) score = "Advantage player2";
-      else if (minusResult >= 2) score = "Win for player1";
-      else score = "Win for player2";
+      if (minusResult === 1) score = `Advantage ${First_player_Name}`;
+      else if (minusResult === -1) score = `Advantage ${Second_player_Name}`;
+      else if (minusResult >= 2) score = `Win for ${First_player_Name}`;
+      else score = `Win for ${Second_player_Name}`;
     } else {
      score =  this.scoreToText(this.m_score1) + "-" +
      this.scoreToText(this.m_score2);
