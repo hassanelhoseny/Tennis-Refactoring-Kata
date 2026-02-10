@@ -15,14 +15,10 @@ export class TennisGame1 implements TennisGame {
   getScore(): string {
     let score: string = "";
     if (this.m_score1 === this.m_score2) {
-        if (this.m_score1 < 3) {
-        score = `${this.scoreToText(this.m_score1)}-All`;
-      }
-       else {
-        score = "Deuce";
-       }
-    } 
-    
+    return this.m_score1 < 3
+      ? `${this.scoreToText(this.m_score1)}-All`
+      : "Deuce";
+    }
     else if (this.m_score1 >= 4 || this.m_score2 >= 4) {
       const minusResult: number = this.m_score1 - this.m_score2;
       if (minusResult === 1) score = `Advantage ${First_player_Name}`;
