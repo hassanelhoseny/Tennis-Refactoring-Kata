@@ -2,6 +2,7 @@ import { TennisGame } from "./TennisGame";
 
 const First_player_Name: string = "player1";
 const Second_player_Name: string = "player2";
+const SCORE_TEXT = ["Love", "Fifteen", "Thirty", "Forty"];
 
 export class TennisGame1 implements TennisGame {
   private m_score1: number = 0;
@@ -27,17 +28,6 @@ export class TennisGame1 implements TennisGame {
   }
 
   private scoreToText(score: number): string {
-    switch (score) {
-      case 0:
-        return "Love";
-      case 1:
-        return "Fifteen";
-      case 2:
-        return "Thirty";
-      case 3:
-        return "Forty";
-      default:
-        return "";
-    }
+   return SCORE_TEXT[score] ;
   }
 }
