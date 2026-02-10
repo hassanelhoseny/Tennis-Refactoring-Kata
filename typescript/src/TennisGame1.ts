@@ -15,21 +15,15 @@ export class TennisGame1 implements TennisGame {
   getScore(): string {
     let score: string = "";
     if (this.m_score1 === this.m_score2) {
-      switch (this.m_score1) {
-        case 0:
-          score = "Love-All";
-          break;
-        case 1:
-          score = "Fifteen-All";
-          break;
-        case 2:
-          score = "Thirty-All";
-          break;
-        default:
-          score = "Deuce";
-          break;
+        if (this.m_score1 < 3) {
+        score = `${this.scoreToText(this.m_score1)}-All`;
       }
-    } else if (this.m_score1 >= 4 || this.m_score2 >= 4) {
+       else {
+        score = "Deuce";
+       }
+    } 
+    
+    else if (this.m_score1 >= 4 || this.m_score2 >= 4) {
       const minusResult: number = this.m_score1 - this.m_score2;
       if (minusResult === 1) score = `Advantage ${First_player_Name}`;
       else if (minusResult === -1) score = `Advantage ${Second_player_Name}`;
