@@ -1,8 +1,5 @@
 import { TennisGame } from "./TennisGame";
-
-const First_player_Name: string = "player1";
-const Second_player_Name: string = "player2";
-const SCORE_TEXT = ["Love", "Fifteen", "Thirty", "Forty"];
+import { First_player_Name, Second_player_Name  , SCORE_TEXT } from "./constants/TennisGameConstant";
 
 export class TennisGame1 implements TennisGame {
   private m_score1: number = 0;
