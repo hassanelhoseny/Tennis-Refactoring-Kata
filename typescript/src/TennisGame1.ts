@@ -1,8 +1,7 @@
 import { TennisGame } from "./TennisGame";
 
-
- const First_player_Name: string = "player1";
- const Second_player_Name: string = "player2";
+const First_player_Name: string = "player1";
+const Second_player_Name: string = "player2";
 
 export class TennisGame1 implements TennisGame {
   private m_score1: number = 0;
@@ -37,13 +36,13 @@ export class TennisGame1 implements TennisGame {
       else if (minusResult >= 2) score = `Win for ${First_player_Name}`;
       else score = `Win for ${Second_player_Name}`;
     } else {
-     score =  this.scoreToText(this.m_score1) + "-" +
-     this.scoreToText(this.m_score2);
+      score =
+        this.scoreToText(this.m_score1) + "-" + this.scoreToText(this.m_score2);
     }
     return score;
   }
 
-    private scoreToText(score: number): string {
+  private scoreToText(score: number): string {
     switch (score) {
       case 0:
         return "Love";
@@ -58,5 +57,3 @@ export class TennisGame1 implements TennisGame {
     }
   }
 }
-
-
