@@ -15,10 +15,10 @@ export class TennisGame1 implements TennisGame {
     return this.m_score1 < 3 ? `${this.getEqualScore(this.m_score1)}-All` : "Deuce";
     }
      if (this.m_score1 >= 4 || this.m_score2 >= 4) {
-      const minusResult: number = this.m_score1 - this.m_score2;
-      if (minusResult === 1) return   `Advantage ${First_player_Name}`;
-      if (minusResult === -1)  return  `Advantage ${Second_player_Name}`;
-      if (minusResult >= 2) return  `Win for ${First_player_Name}`;
+      const scoreDifference: number = this.m_score1 - this.m_score2;
+      if (scoreDifference === 1) return   `Advantage ${First_player_Name}`;
+      if (scoreDifference === -1)  return  `Advantage ${Second_player_Name}`;
+      if (scoreDifference >= 2) return  `Win for ${First_player_Name}`;
        return `Win for ${Second_player_Name}`;
     } 
     return `${this.getEqualScore(this.m_score1)}-${this.getEqualScore(this.m_score2)}`;
