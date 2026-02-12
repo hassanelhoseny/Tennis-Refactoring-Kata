@@ -12,7 +12,7 @@ export class TennisGame1 implements TennisGame {
 
   getScore(): string {
     if (this.m_score1 === this.m_score2) {
-    return this.m_score1 < 3 ? `${this.scoreToText(this.m_score1)}-All` : "Deuce";
+    return this.m_score1 < 3 ? `${this.getEqualScore(this.m_score1)}-All` : "Deuce";
     }
      if (this.m_score1 >= 4 || this.m_score2 >= 4) {
       const minusResult: number = this.m_score1 - this.m_score2;
@@ -21,10 +21,10 @@ export class TennisGame1 implements TennisGame {
       if (minusResult >= 2) return  `Win for ${First_player_Name}`;
        return `Win for ${Second_player_Name}`;
     } 
-    return `${this.scoreToText(this.m_score1)}-${this.scoreToText(this.m_score2)}`;
+    return `${this.getEqualScore(this.m_score1)}-${this.getEqualScore(this.m_score2)}`;
   }
 
-  private scoreToText(score: number): string {
+  private getEqualScore(score: number): string {
    return SCORE_TEXT[score] ;
   }
 }
