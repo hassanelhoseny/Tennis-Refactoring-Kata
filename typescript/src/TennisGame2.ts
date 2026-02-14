@@ -16,9 +16,8 @@ export class TennisGame2 implements TennisGame {
     if (this.P1point === this.P2point && this.P1point >= 3) score = "Deuce";
 
     if (this.P1point > 0 && this.P2point === 0) {
-      if (this.P1point === 1) this.P1res = "Fifteen";
-      if (this.P1point === 2) this.P1res = "Thirty";
-      if (this.P1point === 3) this.P1res = "Forty";
+     this.P2res = this.getEqualScore(this.P2point);
+     this.P1res = this.getEqualScore(this.P1point);
 
       this.P2res = "Love";
       score = this.P1res + "-" + this.P2res;
