@@ -10,19 +10,22 @@ export class TennisGame1 implements TennisGame {
     else this.m_score2 += 1;
   }
 
-  getScore(): string {
-    if (this.m_score1 === this.m_score2) {
-    return this.m_score1 < 3 ? `${this.getEqualScore(this.m_score1)}-All` : "Deuce";
-    }
-     if (this.m_score1 >= 4 || this.m_score2 >= 4) {
-      const scoreDifference: number = this.m_score1 - this.m_score2;
-      if (scoreDifference === 1) return   `Advantage ${First_player_Name}`;
-      if (scoreDifference === -1)  return  `Advantage ${Second_player_Name}`;
-      if (scoreDifference >= 2) return  `Win for ${First_player_Name}`;
-       return `Win for ${Second_player_Name}`;
-    } 
-    return `${this.getEqualScore(this.m_score1)}-${this.getEqualScore(this.m_score2)}`;
+getScore(): string {
+  const scoreDifference = this.m_score1 - this.m_score2;
+  
+  if (scoreDifference === 0) {return this.m_score1 < 3  ? `${this.getEqualScore(this.m_score1)}-All` : "Deuce";
   }
+
+  if (this.m_score1 >= 4 || this.m_score2 >= 4) {
+    const leadingPlayer =    scoreDifference > 0 ? First_player_Name : Second_player_Name;
+
+    return Math.abs(scoreDifference) === 1
+      ? `Advantage ${leadingPlayer}`
+      : `Win for ${leadingPlayer}`;
+  }
+  return `${this.getEqualScore(this.m_score1)}-${this.getEqualScore(this.m_score2)}`;
+}
+
 
   private getEqualScore(score: number): string {
    return SCORE_TEXT[score] ;
