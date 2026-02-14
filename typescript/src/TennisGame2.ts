@@ -24,26 +24,21 @@ export class TennisGame2 implements TennisGame {
       score = this.P1res + "-" + this.P2res;
     }
     if (this.P2point > 0 && this.P1point === 0) {
-      if (this.P2point === 1) this.P2res = "Fifteen";
-      if (this.P2point === 2) this.P2res = "Thirty";
-      if (this.P2point === 3) this.P2res = "Forty";
-
+      this.P2res = this.getEqualScore(this.P2point);
+      this.P1res = this.getEqualScore(this.P1point);
       this.P1res = "Love";
       score = this.P1res + "-" + this.P2res;
     }
 
     if (this.P1point > this.P2point && this.P1point < 4) {
-      if (this.P1point === 2) this.P1res = "Thirty";
-      if (this.P1point === 3) this.P1res = "Forty";
-      if (this.P2point === 1) this.P2res = "Fifteen";
-      if (this.P2point === 2) this.P2res = "Thirty";
+     this.P1res = this.getEqualScore(this.P1point);
+     this.P2res = this.getEqualScore(this.P2point);
       score = this.P1res + "-" + this.P2res;
+    
     }
     if (this.P2point > this.P1point && this.P2point < 4) {
-      if (this.P2point === 2) this.P2res = "Thirty";
-      if (this.P2point === 3) this.P2res = "Forty";
-      if (this.P1point === 1) this.P1res = "Fifteen";
-      if (this.P1point === 2) this.P1res = "Thirty";
+      this.P2res = this.getEqualScore(this.P2point);
+      this.P1res = this.getEqualScore(this.P1point);
       score = this.P1res + "-" + this.P2res;
     }
 
