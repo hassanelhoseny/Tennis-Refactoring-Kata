@@ -15,13 +15,11 @@ export class TennisGame2 implements TennisGame {
 
     if (this.P1point === this.P2point) return this.P1point < 3 ? this.getEqualScore(this.P1point) + "-All" : "Deuce";
 
-    if (this.P1point > 0 && this.P2point === 0) {
-     this.P2res = this.getEqualScore(this.P2point);
-     this.P1res = this.getEqualScore(this.P1point);
-
+  if (this.P1point > 0 && this.P2point === 0) {
+      this.P1res = this.getEqualScore(this.P1point);
       this.P2res = "Love";
       score = this.P1res + "-" + this.P2res;
-    }
+}
   if (this.P1point > 0 && this.P2point === 0) {
       this.P1res = this.getEqualScore(this.P1point);
       this.P2res = "Love";
