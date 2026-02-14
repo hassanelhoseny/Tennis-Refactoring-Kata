@@ -9,11 +9,9 @@ export class TennisGame2 implements TennisGame {
 
   getScore(): string {
     let score: string = "";
+
     if (this.P1point === this.P2point && this.P1point < 4) {
-      if (this.P1point === 0) score = "Love";
-      if (this.P1point === 1) score = "Fifteen";
-      if (this.P1point === 2) score = "Thirty";
-      score += "-All";
+     score = this.getEqualScore(this.P1point) + '-All';
     }
     if (this.P1point === this.P2point && this.P1point >= 3) score = "Deuce";
 
@@ -72,6 +70,11 @@ export class TennisGame2 implements TennisGame {
       score = "Win for player2";
     }
     return score;
+  }
+
+ private getEqualScore(point: number): string {
+    const SCORE_value = ['Love', 'Fifteen', 'Thirty', 'Forty'];
+    return SCORE_value[point];
   }
 
   SetP1Score(score: number): void {
