@@ -4,6 +4,9 @@ export class TennisGame2 implements TennisGame {
   P1point: number = 0;
   P2point: number = 0;
 
+  private readonly SCORE_VALUE: string[] = ["Love", "Fifteen", "Thirty", "Forty"];
+
+
   P1res: string = "";
   P2res: string = "";
 
@@ -66,9 +69,8 @@ export class TennisGame2 implements TennisGame {
     return score;
   }
 
- private getEqualScore(point: number): string {
-    const SCORE_value = ['Love', 'Fifteen', 'Thirty', 'Forty'];
-    return SCORE_value[point];
+  private getEqualScore(point: number): string {
+    return this.SCORE_VALUE[point];
   }
 
   SetP1Score(score: number): void {
