@@ -13,10 +13,7 @@ export class TennisGame2 implements TennisGame {
   getScore(): string {
     let score: string = "";
 
-    if (this.P1point === this.P2point && this.P1point < 4) {
-     score = this.getEqualScore(this.P1point) + '-All';
-    }
-    if (this.P1point === this.P2point && this.P1point >= 3) score = "Deuce";
+    if (this.P1point === this.P2point) return this.P1point < 3 ? this.getEqualScore(this.P1point) + "-All" : "Deuce";
 
     if (this.P1point > 0 && this.P2point === 0) {
      this.P2res = this.getEqualScore(this.P2point);
